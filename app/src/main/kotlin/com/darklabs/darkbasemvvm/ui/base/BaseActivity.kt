@@ -5,7 +5,9 @@ import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v7.app.AppCompatActivity
+import com.darklabs.darkbasemvvm.ViewModelFactory
 import dagger.android.AndroidInjection
+import javax.inject.Inject
 
 /**
  *
@@ -17,6 +19,8 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatA
     private lateinit var mViewDataBinding: T
     protected var mViewModel: V? = null
 
+    @Inject
+    protected lateinit var factory: ViewModelFactory
 
     abstract fun getBindingVariable(): Int
 
@@ -25,9 +29,8 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatA
 
     abstract fun getViewModel(): V
 
-    fun getViewDataBinding(): T {
-        return mViewDataBinding
-    }
+    fun getViewDataBinding(): T = mViewDataBinding
+
 
     private fun performDataBinding() {
         if (mViewModel == null) {

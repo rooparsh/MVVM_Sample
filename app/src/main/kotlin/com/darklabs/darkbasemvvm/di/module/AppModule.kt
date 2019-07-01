@@ -23,30 +23,23 @@ object AppModule {
     @Provides
     @Singleton
     @JvmStatic
-    internal fun provideApiHelper(apiHelper: AppApiHelper): ApiHelper {
-        return apiHelper
-    }
+    internal fun provideApiHelper(apiHelper: AppApiHelper): ApiHelper = apiHelper
 
     @Provides
     @Singleton
     @JvmStatic
-    internal fun provideDataManager(dataManagerImpl: DataManagerImpl): DataManager {
-        return dataManagerImpl
-    }
+    internal fun provideDataManager(dataManagerImpl: DataManagerImpl): DataManager = dataManagerImpl
 
 
     @Provides
     @Singleton
     @JvmStatic
-    internal fun provideContext(application: MyApplication): Context {
-        return application
-    }
+    internal fun provideContext(application: MyApplication): Context = application
+
 
     @Provides
     @Singleton
     @JvmStatic
-    internal fun provideSchedulerProvider(): SchedulerProvider {
-        return SchedulerProviderImpl()
-    }
+    internal fun provideSchedulerProvider(): SchedulerProvider = SchedulerProviderImpl()
 
 }

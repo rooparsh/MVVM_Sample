@@ -30,8 +30,6 @@ open class MyApplication : DaggerApplication() {
 
     override fun onCreate() {
         super.onCreate()
-
-        //  DaggerAppInjector.builder().networkModule(NetworkModule).appModule(AppModule).build()
     }
 
 }

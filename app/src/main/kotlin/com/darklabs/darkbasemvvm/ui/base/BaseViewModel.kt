@@ -22,7 +22,6 @@ abstract class BaseViewModel(
     private var mCompositeDisposable: CompositeDisposable = CompositeDisposable()
     private var mIsLoading: ObservableBoolean = ObservableBoolean()
 
-    var loadingVisibility: MutableLiveData<Int> = MutableLiveData()
     val errorMessage: MutableLiveData<Int> = MutableLiveData()
     val errorClickListener = View.OnClickListener { retryClickListener() }
 
@@ -32,29 +31,20 @@ abstract class BaseViewModel(
         super.onCleared()
     }
 
-    fun getCompositeDisposable(): CompositeDisposable {
-        return mCompositeDisposable
-    }
+    fun getCompositeDisposable(): CompositeDisposable = mCompositeDisposable
 
-    fun getIsLoading(): ObservableBoolean {
-        return mIsLoading
-    }
 
-    fun getLoadingVisibility(): Int {
-        return loadingVisibility.value!!
-    }
+    fun getIsLoading(): ObservableBoolean = mIsLoading
+
 
     fun setIsLoading(isLoading: Boolean) {
         this.mIsLoading.set(isLoading)
     }
 
-    fun getSchedulerProvider(): SchedulerProvider {
-        return mSchedulerProvider
-    }
+    fun getSchedulerProvider(): SchedulerProvider = mSchedulerProvider
 
-    fun getDataManager(): DataManager {
-        return mDataManager
-    }
+
+    fun getDataManager(): DataManager = mDataManager
 
 
     abstract fun retryClickListener()

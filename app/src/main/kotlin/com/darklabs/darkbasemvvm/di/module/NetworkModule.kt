@@ -25,22 +25,19 @@ object NetworkModule {
     @Provides
     @Reusable
     @JvmStatic
-    internal fun provideApiInterface(retrofit: Retrofit): ApiInterface {
-        return retrofit.create(ApiInterface::class.java)
-    }
+    internal fun provideApiInterface(retrofit: Retrofit): ApiInterface = retrofit.create(ApiInterface::class.java)
 
 
     @Provides
     @Reusable
     @JvmStatic
-    internal fun provideRestClient(): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
-            .client(httpClient())
-            .build()
-    }
+    internal fun provideRestClient(): Retrofit = Retrofit.Builder()
+        .baseUrl(BuildConfig.BASE_URL)
+        .addConverterFactory(MoshiConverterFactory.create())
+        .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
+        .client(httpClient())
+        .build()
+
 
     private fun httpClient(): OkHttpClient {
 
