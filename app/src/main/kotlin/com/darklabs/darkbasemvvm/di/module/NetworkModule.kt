@@ -1,7 +1,7 @@
 package com.darklabs.darkbasemvvm.di.module
 
+import com.darklabs.darkbasemvvm.BuildConfig
 import com.darklabs.darkbasemvvm.data.remote.ApiInterface
-import com.darklabs.darkbasemvvm.util.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
@@ -35,7 +35,7 @@ object NetworkModule {
     @JvmStatic
     internal fun provideRestClient(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
             .client(httpClient())

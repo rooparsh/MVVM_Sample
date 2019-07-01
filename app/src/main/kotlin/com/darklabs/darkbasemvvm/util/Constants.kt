@@ -6,4 +6,4 @@ package com.darklabs.darkbasemvvm.util
  *
  **/
 
-const val BASE_URL = "https://jsonplaceholder.typicode.com"
+const val DEVICE_TYPE = "1"   //android
