@@ -1,14 +1,14 @@
 package com.darklabs.darkbasemvvm.ui.post
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.annotation.StringRes
-import android.support.design.widget.Snackbar
+import androidx.annotation.StringRes
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.darklabs.darkbasemvvm.BR
 import com.darklabs.darkbasemvvm.R
 import com.darklabs.darkbasemvvm.databinding.ActivityPostListBinding
 import com.darklabs.darkbasemvvm.ui.base.BaseActivity
+import com.google.android.material.snackbar.Snackbar
 
 class PostListActivity : BaseActivity<ActivityPostListBinding, PostListViewModel>(), PostListNavigator {
     override fun openNextActivity() {

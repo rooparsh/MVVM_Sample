@@ -1,10 +1,10 @@
 package com.darklabs.darkbasemvvm.ui.base
 
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
 import android.os.Bundle
-import android.support.annotation.LayoutRes
-import android.support.v7.app.AppCompatActivity
+import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import com.darklabs.darkbasemvvm.ViewModelFactory
 import dagger.android.AndroidInjection
 import javax.inject.Inject

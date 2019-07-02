@@ -1,7 +1,7 @@
 package com.darklabs.darkbasemvvm
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.darklabs.darkbasemvvm.data.DataManager
 import com.darklabs.darkbasemvvm.ui.post.PostListViewModel
 import com.darklabs.darkbasemvvm.util.rx.SchedulerProvider

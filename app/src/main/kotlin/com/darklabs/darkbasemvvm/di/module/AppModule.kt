@@ -1,6 +1,6 @@
 package com.darklabs.darkbasemvvm.di.module
 
-import android.arch.persistence.room.Room
+import androidx.room.Room
 import android.content.Context
 import com.darklabs.darkbasemvvm.MyApplication
 import com.darklabs.darkbasemvvm.data.DataManager

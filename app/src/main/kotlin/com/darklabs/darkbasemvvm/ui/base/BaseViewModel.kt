@@ -1,9 +1,9 @@
 package com.darklabs.darkbasemvvm.ui.base
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
-import android.databinding.ObservableBoolean
 import android.view.View
+import androidx.databinding.ObservableBoolean
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.darklabs.darkbasemvvm.data.DataManager
 import com.darklabs.darkbasemvvm.util.rx.SchedulerProvider
 import io.reactivex.disposables.CompositeDisposable
