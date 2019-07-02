@@ -2,6 +2,7 @@ package com.darklabs.darkbasemvvm.data.local.db.dao
 
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
+import android.arch.persistence.room.OnConflictStrategy
 import android.arch.persistence.room.Query
 import com.darklabs.darkbasemvvm.data.model.Post
 
@@ -14,8 +15,8 @@ import com.darklabs.darkbasemvvm.data.model.Post
 @Dao
 interface PostDao {
 
-    @Insert
-    fun inserAll(vararg post: Post)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(post: List<Post>)
 
     @get:Query("SELECT * FROM post")
     val allPosts: List<Post>

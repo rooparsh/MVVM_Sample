@@ -10,7 +10,10 @@ import com.darklabs.darkbasemvvm.R
 import com.darklabs.darkbasemvvm.databinding.ActivityPostListBinding
 import com.darklabs.darkbasemvvm.ui.base.BaseActivity
 
-class PostListActivity : BaseActivity<ActivityPostListBinding, PostListViewModel>() {
+class PostListActivity : BaseActivity<ActivityPostListBinding, PostListViewModel>(), PostListNavigator {
+    override fun openNextActivity() {
+
+    }
 
     override fun getBindingVariable(): Int = BR.viewModel
 

@@ -1,9 +1,7 @@
 package com.darklabs.darkbasemvvm.data
 
 import com.darklabs.darkbasemvvm.data.local.db.DbHelper
-import com.darklabs.darkbasemvvm.data.model.Post
 import com.darklabs.darkbasemvvm.data.remote.ApiHelper
-import io.reactivex.Observable
 
 /**
  *
@@ -12,5 +10,4 @@ import io.reactivex.Observable
  **/
 interface DataManager : DbHelper, ApiHelper {
 
-    //fun doPostsApiCall(): Observable<List<Post>>
 }

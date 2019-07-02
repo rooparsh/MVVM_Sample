@@ -21,6 +21,7 @@ abstract class BaseViewModel(
 
     private var mCompositeDisposable: CompositeDisposable = CompositeDisposable()
     private var mIsLoading: ObservableBoolean = ObservableBoolean()
+    //private lateinit var mNavigator: WeakReference<N>
 
     val errorMessage: MutableLiveData<Int> = MutableLiveData()
     val errorClickListener = View.OnClickListener { retryClickListener() }
@@ -33,9 +34,7 @@ abstract class BaseViewModel(
 
     fun getCompositeDisposable(): CompositeDisposable = mCompositeDisposable
 
-
     fun getIsLoading(): ObservableBoolean = mIsLoading
-
 
     fun setIsLoading(isLoading: Boolean) {
         this.mIsLoading.set(isLoading)
@@ -43,9 +42,13 @@ abstract class BaseViewModel(
 
     fun getSchedulerProvider(): SchedulerProvider = mSchedulerProvider
 
-
     fun getDataManager(): DataManager = mDataManager
 
+    /*fun getNavigator(): N? = mNavigator.get()
+
+    fun setNavigator(navigator: N) {
+        this.mNavigator = WeakReference(navigator)
+    }*/
 
     abstract fun retryClickListener()
 }
