@@ -11,6 +11,8 @@ import com.darklabs.darkbasemvvm.ui.base.BaseActivity
 import com.google.android.material.snackbar.Snackbar
 
 class PostListActivity : BaseActivity<ActivityPostListBinding, PostListViewModel>(), PostListNavigator {
+
+
     override fun openNextActivity() {
 
     }
@@ -19,23 +21,21 @@ class PostListActivity : BaseActivity<ActivityPostListBinding, PostListViewModel
 
     override fun getLayoutId(): Int = R.layout.activity_post_list
 
-    override fun getViewModel(): PostListViewModel {
-        mViewModel = ViewModelProviders.of(this, factory).get(PostListViewModel::class.java)
-        return mViewModel as PostListViewModel
-    }
+    override fun getViewModel(): PostListViewModel =
+        ViewModelProviders.of(this, factory).get(PostListViewModel::class.java)
+
 
     private lateinit var mSnackBar: Snackbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mViewModel?.errorMessage?.observe(
+        getViewModel().errorMessage.observe(
             this,
             Observer { errorMessage ->
                 errorMessage?.let {
                     showError(it)
                 } ?: kotlin.run { hideError() }
             })
-
     }
 
     private fun hideError() {

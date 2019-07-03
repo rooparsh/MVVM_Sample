@@ -13,15 +13,13 @@ import io.reactivex.disposables.CompositeDisposable
  * Created by Rooparsh Kalia on 2019-05-05
  *
  **/
-abstract class BaseViewModel(
-    private val mDataManager: DataManager,
-    private val mSchedulerProvider: SchedulerProvider
-) :
+abstract class BaseViewModel(private val mDataManager: DataManager, private val mSchedulerProvider: SchedulerProvider) :
     ViewModel() {
 
     private var mCompositeDisposable: CompositeDisposable = CompositeDisposable()
     private var mIsLoading: ObservableBoolean = ObservableBoolean()
     //private lateinit var mNavigator: WeakReference<N>
+
 
     val errorMessage: MutableLiveData<Int> = MutableLiveData()
     val errorClickListener = View.OnClickListener { retryClickListener() }
@@ -40,9 +38,9 @@ abstract class BaseViewModel(
         this.mIsLoading.set(isLoading)
     }
 
-    fun getSchedulerProvider(): SchedulerProvider = mSchedulerProvider
+    fun getDataManager() = mDataManager
 
-    fun getDataManager(): DataManager = mDataManager
+    fun getScheduler() = mSchedulerProvider
 
     /*fun getNavigator(): N? = mNavigator.get()
 

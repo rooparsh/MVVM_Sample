@@ -2,6 +2,7 @@ package com.darklabs.darkbasemvvm.di.component
 
 import com.darklabs.darkbasemvvm.MyApplication
 import com.darklabs.darkbasemvvm.di.builder.ActivityBuilder
+import com.darklabs.darkbasemvvm.di.builder.ViewModuleBuilder
 import com.darklabs.darkbasemvvm.di.module.AppModule
 import com.darklabs.darkbasemvvm.di.module.NetworkModule
 import dagger.Component
@@ -15,7 +16,13 @@ import javax.inject.Singleton
  *
  **/
 @Singleton
-@Component(modules = [AndroidInjectionModule::class, NetworkModule::class, AppModule::class, ActivityBuilder::class])
+@Component(
+    modules = [AndroidInjectionModule::class,
+        NetworkModule::class,
+        AppModule::class,
+        ViewModuleBuilder::class,
+        ActivityBuilder::class]
+)
 interface AppInjector : AndroidInjector<MyApplication> {
 
 

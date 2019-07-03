@@ -1,4 +1,4 @@
-package com.darklabs.darkbasemvvm.di
+package com.darklabs.darkbasemvvm.di.info
 
 import javax.inject.Qualifier
 
@@ -10,4 +10,4 @@ import javax.inject.Qualifier
 
 @Qualifier
 @kotlin.annotation.Retention(AnnotationRetention.RUNTIME)
-annotation class ApiInfo
+annotation class DatabaseInfo

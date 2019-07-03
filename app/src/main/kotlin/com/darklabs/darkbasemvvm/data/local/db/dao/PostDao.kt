@@ -1,5 +1,6 @@
 package com.darklabs.darkbasemvvm.data.local.db.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -19,5 +20,5 @@ interface PostDao {
     fun insertAll(post: List<Post>)
 
     @get:Query("SELECT * FROM post")
-    val allPosts: List<Post>
+    val allPosts: LiveData<List<Post>>
 }

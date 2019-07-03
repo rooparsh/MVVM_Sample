@@ -5,16 +5,15 @@ import com.darklabs.darkbasemvvm.data.DataManager
 import com.darklabs.darkbasemvvm.data.model.Post
 import com.darklabs.darkbasemvvm.ui.base.BaseViewModel
 import com.darklabs.darkbasemvvm.util.rx.SchedulerProvider
+import javax.inject.Inject
 
 /**
  *
  * Created by Rooparsh Kalia on 2019-05-05
  *
  **/
-class PostListViewModel(
-    mDataManager: DataManager,
-    mSchedulerProvider: SchedulerProvider
-) : BaseViewModel(mDataManager, mSchedulerProvider) {
+class PostListViewModel @Inject constructor(mDataManager: DataManager, mSchedulerProvider: SchedulerProvider) :
+    BaseViewModel(mDataManager, mSchedulerProvider) {
 
     override fun retryClickListener() {
         loadPosts()
@@ -29,8 +28,8 @@ class PostListViewModel(
         getCompositeDisposable().add(
             getDataManager()
                 .doPostsApiCall()
-                .subscribeOn(getSchedulerProvider().io())
-                .observeOn(getSchedulerProvider().ui())
+                .subscribeOn(getScheduler().io())
+                .observeOn(getScheduler().ui())
                 .doOnSubscribe { showLoading() }
                 .doAfterTerminate { hideLoading() }
                 .subscribe({ result -> onRetrievePostListSuccess(result as List<Post>) }, { onRetrievePostListError() })

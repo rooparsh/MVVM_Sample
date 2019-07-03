@@ -5,7 +5,7 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.darklabs.darkbasemvvm.ViewModelFactory
+import com.darklabs.darkbasemvvm.di.ViewModelFactory
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
@@ -17,7 +17,6 @@ import javax.inject.Inject
 abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatActivity() {
 
     private lateinit var mViewDataBinding: T
-    protected var mViewModel: V? = null
 
     @Inject
     protected lateinit var factory: ViewModelFactory
@@ -33,11 +32,8 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatA
 
 
     private fun performDataBinding() {
-        if (mViewModel == null) {
-            mViewModel = getViewModel()
-        }
         mViewDataBinding = DataBindingUtil.setContentView(this, getLayoutId())
-        mViewDataBinding.setVariable(getBindingVariable(), mViewModel)
+        mViewDataBinding.setVariable(getBindingVariable(), getViewModel())
         mViewDataBinding.executePendingBindings()
     }
 
