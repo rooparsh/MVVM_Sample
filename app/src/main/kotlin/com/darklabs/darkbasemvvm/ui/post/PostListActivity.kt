@@ -29,6 +29,7 @@ class PostListActivity : BaseActivity<ActivityPostListBinding, PostListViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getViewModel().setNavigator(this)
         getViewModel().errorMessage.observe(
             this,
             Observer { errorMessage ->

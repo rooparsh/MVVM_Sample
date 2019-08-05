@@ -13,7 +13,7 @@ import javax.inject.Inject
  *
  **/
 class PostListViewModel @Inject constructor(mDataManager: DataManager, mSchedulerProvider: SchedulerProvider) :
-    BaseViewModel(mDataManager, mSchedulerProvider) {
+    BaseViewModel<PostListNavigator>(mDataManager, mSchedulerProvider) {
 
     override fun retryClickListener() {
         loadPosts()

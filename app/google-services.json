@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "670037917004",
+    "firebase_url": "https://digi-tech-1459e.firebaseio.com",
+    "project_id": "digi-tech-1459e",
+    "storage_bucket": "digi-tech-1459e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670037917004:android:b4b240653ba5293f",
+        "android_client_info": {
+          "package_name": "com.darklabs.darkbasemvvm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "670037917004-f0o6d23je6vkt277qrshon50f60vtm4i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZ-TFq4Nl0frEoxVD6kDxB5kqJZP_VfOQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

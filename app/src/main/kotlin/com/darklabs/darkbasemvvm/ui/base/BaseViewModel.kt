@@ -7,18 +7,22 @@ import androidx.lifecycle.ViewModel
 import com.darklabs.darkbasemvvm.data.DataManager
 import com.darklabs.darkbasemvvm.util.rx.SchedulerProvider
 import io.reactivex.disposables.CompositeDisposable
+import java.lang.ref.WeakReference
 
 /**
  *
  * Created by Rooparsh Kalia on 2019-05-05
  *
  **/
-abstract class BaseViewModel(private val mDataManager: DataManager, private val mSchedulerProvider: SchedulerProvider) :
+abstract class BaseViewModel<N>(
+    private val mDataManager: DataManager,
+    private val mSchedulerProvider: SchedulerProvider
+) :
     ViewModel() {
 
     private var mCompositeDisposable: CompositeDisposable = CompositeDisposable()
     private var mIsLoading: ObservableBoolean = ObservableBoolean()
-    //private lateinit var mNavigator: WeakReference<N>
+    private lateinit var mNavigator: WeakReference<N>
 
 
     val errorMessage: MutableLiveData<Int> = MutableLiveData()
@@ -42,11 +46,11 @@ abstract class BaseViewModel(private val mDataManager: DataManager, private val 
 
     fun getScheduler() = mSchedulerProvider
 
-    /*fun getNavigator(): N? = mNavigator.get()
+    fun getNavigator(): N = mNavigator.get()!!
 
     fun setNavigator(navigator: N) {
         this.mNavigator = WeakReference(navigator)
-    }*/
+    }
 
     abstract fun retryClickListener()
 }

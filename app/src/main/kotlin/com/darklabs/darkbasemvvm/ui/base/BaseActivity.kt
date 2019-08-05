@@ -14,7 +14,7 @@ import javax.inject.Inject
  * Created by Rooparsh Kalia on 2019-06-29
  *
  **/
-abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatActivity() {
+abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppCompatActivity() {
 
     private lateinit var mViewDataBinding: T
 
