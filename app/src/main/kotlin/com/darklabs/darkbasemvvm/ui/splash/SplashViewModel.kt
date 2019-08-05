@@ -19,6 +19,8 @@ class SplashViewModel @Inject constructor(mDataManager: DataManager, mSchedulerP
     init {
         if (RootUtil.isDeviceRooted()) {
             getNavigator().showRootDialog()
+        } else{
+            getNavigator().registerForFcmToken()
         }
     }
 

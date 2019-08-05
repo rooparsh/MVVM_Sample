@@ -10,6 +10,14 @@ import com.google.firebase.iid.FirebaseInstanceId
 
 class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>(), SplashNavigator {
 
+    override fun openNextActivity() {
+
+    }
+
+    override fun registerForFcmToken() {
+        FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener(this) { }
+    }
+
     override fun showRootDialog() {
 
     }
@@ -23,6 +31,5 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>(), S
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         getViewModel().setNavigator(this)
-        FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener(this) { }
     }
 }

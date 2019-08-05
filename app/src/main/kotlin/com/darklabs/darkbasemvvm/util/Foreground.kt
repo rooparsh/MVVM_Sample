@@ -126,7 +126,7 @@ object Foreground : Application.ActivityLifecycleCallbacks {
      * @param application Instance of application class of app
      * @return an initialised Foreground instance
      */
-    fun init(application: Application): Foreground? {
+    private fun init(application: Application): Foreground? {
         if (instance == null) {
             instance = Foreground
             application.registerActivityLifecycleCallbacks(instance)

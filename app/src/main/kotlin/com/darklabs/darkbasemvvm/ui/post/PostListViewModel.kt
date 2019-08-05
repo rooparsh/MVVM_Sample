@@ -15,6 +15,8 @@ import javax.inject.Inject
 class PostListViewModel @Inject constructor(mDataManager: DataManager, mSchedulerProvider: SchedulerProvider) :
     BaseViewModel<PostListNavigator>(mDataManager, mSchedulerProvider) {
 
+    private val mPostListAdapter = PostListAdapter()
+
     override fun retryClickListener() {
         loadPosts()
     }
@@ -45,7 +47,7 @@ class PostListViewModel @Inject constructor(mDataManager: DataManager, mSchedule
     }
 
     private fun onRetrievePostListSuccess(postList: List<Post>) {
-        //postListAdapter.updatePostList(postList)
+        mPostListAdapter.updatePostList(postList)
     }
 
     private fun onRetrievePostListError() {
